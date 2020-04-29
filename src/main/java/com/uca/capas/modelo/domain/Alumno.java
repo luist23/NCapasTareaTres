@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Alumno {
@@ -20,15 +21,15 @@ public class Alumno {
 	@NotEmpty
 	Date fechaN;
 	
-	@NotEmpty(message = "El campo contrasenia no puede estar vacio.")
+	@Size(min=1, max=25, message = "El campo usuario debe tener una longitud entre 1 y 25 caracteres.")
 	String direccionN;
 	
-	@Size(min=1, max=25, message = "El campo usuario debe tener una longitud entre 1 y 25 caracteres.")
+	@Size(min=1, max=25, message = "El campo usuario debe tener una longitud entre 1 y 100 caracteres.")
 	String Insti;
 	
-	@NotEmpty(message = "El campo contrasenia no puede estar vacio.")
+	@Pattern(regexp = "[0-9]{8}")
 	String celular;
 	
-	@Size(min=1, max=25, message = "El campo usuario debe tener una longitud entre 1 y 25 caracteres.")
+	@Pattern(regexp = "[0-9]{8}")
 	String telefono;
 }
