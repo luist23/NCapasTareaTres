@@ -26,7 +26,7 @@ public class AlumnoController {
 	}
 	
 	
-	@RequestMapping("/ingresar")
+	@RequestMapping("/ingresarAlumnoValidator")
 	public ModelAndView procesar2(@Valid @ModelAttribute Alumno alumno, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		
@@ -34,9 +34,7 @@ public class AlumnoController {
 			mav.setViewName("tareas/tareaTres/index");
 		}
 		else { //Si no hay, flujo normal
-			mav.addObject("user", user.getUsuario());
-			mav.addObject("pass", user.getContrasenia());
-			mav.setViewName("clases/clase11/resultado");
+			mav.setViewName("tareas/tareaTres/resultado");
 		}
 		return mav;
 	}
