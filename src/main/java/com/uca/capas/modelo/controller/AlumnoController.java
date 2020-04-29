@@ -10,35 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.capas.modelo.domain.Alumno;
 import com.uca.capas.modelo.domain.Usuario;
 
 
 @Controller
 public class AlumnoController {
 	
-	@RequestMapping("/index11")
-	public ModelAndView index11() {
+	@RequestMapping("/ingresar")
+	public ModelAndView indexTareaTres() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("usuario", new Usuario());
-		mav.setViewName("clases/clase11/index");
+		mav.addObject("alumno", new Alumno());
+		mav.setViewName("tareas/tareaTres/index");
 		return mav;
 	}
 	
-	@RequestMapping("/procesar")
-	public ModelAndView procesar(@ModelAttribute Usuario user) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("user", user.getUsuario());
-		mav.addObject("pass", user.getContrasenia());
-		mav.setViewName("clases/clase11/resultado");
-		return mav;
-	}
 	
-	@RequestMapping("/procesar2")
-	public ModelAndView procesar2(@Valid @ModelAttribute Usuario user, BindingResult result) {
+	@RequestMapping("/ingresar")
+	public ModelAndView procesar2(@Valid @ModelAttribute Alumno alumno, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) { //Hay errores, redirigimos a la pantalla del formulario
-			mav.setViewName("clases/clase11/index");
+			mav.setViewName("tareas/tareaTres/index");
 		}
 		else { //Si no hay, flujo normal
 			mav.addObject("user", user.getUsuario());
